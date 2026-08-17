@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Focus Flow</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>Focus Flow</h1>
+      <div class="streak" id="streak">
+        <span class="streak-flame">🔥</span>
+        <span id="streak-count">0</span>
+        <span class="streak-label">day streak</span>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="timer-card">
+        <div class="mode-tabs">
+          <button class="mode-tab active" data-mode="focus">Focus</button>
+          <button class="mode-tab" data-mode="short">Short Break</button>
+          <button class="mode-tab" data-mode="long">Long Break</button>
+        </div>
+
+        <div class="timer-ring-wrap">
+          <svg class="timer-ring" viewBox="0 0 220 220">
+            <circle class="ring-bg" cx="110" cy="110" r="100"></circle>
+            <circle class="ring-progress" id="ring-progress" cx="110" cy="110" r="100"></circle>
+          </svg>
+          <div class="timer-display">
+            <div class="time" id="time-display">25:00</div>
+            <div class="current-task" id="current-task-label">No task selected</div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button class="btn btn-secondary" id="reset-btn" title="Reset timer">↺</button>
+          <button class="btn btn-primary" id="start-btn">Start</button>
+          <button class="btn btn-secondary" id="skip-btn" title="Skip to next">⏭</button>
+        </div>
+
+        <div class="session-dots" id="session-dots"></div>
+      </section>
+
+      <section class="tasks-card">
+        <div class="tasks-header">
+          <h2>Tasks</h2>
+          <span class="task-count" id="task-count">0 left</span>
+        </div>
+        <form class="task-form" id="task-form">
+          <input type="text" id="task-input" placeholder="What are you working on?" autocomplete="off" maxlength="80">
+          <button type="submit" class="btn btn-primary btn-small">Add</button>
+        </form>
+        <ul class="task-list" id="task-list"></ul>
+        <p class="empty-hint" id="empty-hint">Add a task, then hit Start to select it and begin focusing.</p>
+      </section>
+    </main>
+
+    <div class="celebration" id="celebration"></div>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
